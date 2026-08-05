@@ -1,10 +1,21 @@
+# ROADMAP — Playwright + JavaScript Automation Framework
+
+Application: https://inventory.techversantinfotech.com/login
+
+This document is a concise project roadmap and overview for implementing a Playwright + JavaScript automation framework for the Inventory application. The table below lists the planned phases from project setup through final documentation and CI/CD readiness.
+
 | Phase | Activity | Deliverable |
 |---|---|---|
-| Project Setup & Framework | Initialize repository; install Playwright and test dependencies; configure playwright.config, linters, formatter, and basic CI skeleton; establish folder structure and test runner conventions | Framework Ready (repo scaffold, Playwright config, linting, folder structure) |
-| Login Module Automation | Design Page Object for Login; implement authentication fixtures; create positive/negative login tests; capture screenshots/traces on failure; add basic reporting | Login Test Suite (POM, fixtures, automated login tests, artifacts) |
-| Dashboard Automation | Model dashboard pages and widgets with Page Objects; implement tests for data loading, widgets, and navigation; include smoke checks for critical dashboard flows | Dashboard Test Suite (POMs and automated dashboard tests) |
-| Common Components | Extract and implement reusable components (buttons, tables, modals, API helpers, test data factories); centralize selectors and utilities; add shared fixtures | Reusable Components (shared page objects, helpers, fixtures, factories) |
-| Inventory Module | Implement Page Objects and end-to-end tests for inventory CRUD, search, filters, and exports; ensure data setup/teardown and isolation per test | Inventory Test Suite (comprehensive inventory E2E tests and data management) |
-| Framework Enhancement | Add robust reporting (HTML/Allure), retries/flaky detection, parallelization tuning, trace/video capture strategy; integrate optional TypeScript and stricter quality gates | Utilities & Reporting (reporting pipeline, flaky policy, performance tuning tools) |
-| Regression Suite | Consolidate smoke and full test sets into organized suites; implement tagging, selective runs, and scheduled regression pipelines; optimize for CI runtime and stability | End-to-End Regression (stable, CI-executable regression suites) |
-| Documentation & CI/CD | Complete contributor and test authoring guides; finalize CI workflows for PRs and scheduled runs; add runbooks for troubleshooting, test maintenance, and release gating | Project Ready (full docs, CI/CD configured, runbooks, and acceptance criteria) |
+| Project Setup & Framework | Initialize repository and project conventions; configure Playwright Test; add linting and formatting; establish Page Object Model (POM) structure; create base fixtures and utility helpers. | Framework Ready: package.json, playwright.config.js, .eslintrc/.prettierrc, src/pages (POM), src/fixtures, basic utils, and an initial smoke test. |
+| Login Module Automation | Design and implement Login page object(s); create positive and negative authentication tests; implement auth fixtures and failure artifact capture (screenshots, traces). | Login Test Suite: login.page.js, login.spec.js, authentication fixtures, and configured artifact collection. |
+| Dashboard Automation | Model the dashboard and its widgets; automate core dashboard workflows, widgets, and navigation; add assertions for data presentation and interactions. | Dashboard Test Suite: dashboard.page.js, dashboard.spec.js, component selectors, and example data fixtures. |
+| Common Components | Implement and centralize reusable components and helpers (navigation, modals, tables/grids, API request helpers); provide utilities for selectors, waits, and test data handling. | Reusable Components: shared component modules, helpers, request utilities, and example usage across tests. |
+| Inventory Module | Implement POMs for inventory features; automate CRUD operations, search, filters, bulk actions, and validations; include API-backed setup/teardown where needed. | Inventory Test Suite: inventory.page.js, inventory.spec.js, test data factories, cleanup scripts, and example end-to-end scenarios. |
+| Framework Enhancement | Add reporting (HTML/Allure), artifact retention (screenshots, traces, videos), retry and flaky-test detection policies, parallelization tuning, and environment/config management utilities. | Utilities & Reporting: report configuration, artifact folders, retry/flakiness policy docs, environment templates, and CI-friendly settings. |
+| Regression Suite | Consolidate smoke and feature tests into a maintainable regression suite; tag and categorize tests (smoke, critical, full); enable selective execution for PRs and scheduled runs. | End-to-End Regression: organized test suites with tags, CI-selectable jobs, regression run artifacts and consolidated reports. |
+| Documentation & CI/CD | Finalize README and ROADMAP; author test authoring guide, contributing and troubleshooting docs; implement GitHub Actions workflows for PR checks and scheduled runs; define acceptance criteria and KPIs. | Project Ready: ROADMAP.md, updated README.md, docs/, .github/workflows/ci.yml, CI runbook, and acceptance criteria/KPIs. |
+
+Notes
+- Use this table as the project overview and break each phase into actionable issues or tasks in your tracker.
+- Prioritize test determinism and fast execution; prefer API/unit tests for business logic and reserve UI tests for critical end-to-end verification.
+- Revisit and refine this roadmap with stakeholders as the project evolves.
